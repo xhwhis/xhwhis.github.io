@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='DAY01 更新源 打开终端（Ctrl&#43;Alt&#43;T），执行命令 sudo gedit /etc/apt/sources.list 将文本框的内容删除，粘贴以下内容,保存并退出 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb-src http://mirrors.'><title>note1</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/note1/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='note1'>
+<meta property='og:description' content='DAY01 更新源 打开终端（Ctrl&#43;Alt&#43;T），执行命令 sudo gedit /etc/apt/sources.list 将文本框的内容删除，粘贴以下内容,保存并退出 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb-src http://mirrors.'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/note1/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="note1">
+<meta name="twitter:description" content="DAY01 更新源 打开终端（Ctrl&#43;Alt&#43;T），执行命令 sudo gedit /etc/apt/sources.list 将文本框的内容删除，粘贴以下内容,保存并退出 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse deb-src http://mirrors.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/note1/">note1</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="day01">DAY01</h1>
+<h2 id="更新源">更新源</h2>
+<h3 id="打开终端ctrlaltt执行命令">打开终端（Ctrl+Alt+T），执行命令</h3>
+<pre tabindex="0"><code>sudo gedit /etc/apt/sources.list
+</code></pre><h3 id="将文本框的内容删除粘贴以下内容保存并退出">将文本框的内容删除，粘贴以下内容,保存并退出</h3>
+<pre tabindex="0"><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+</code></pre><p>·预先加载的应用（apt-get install preload）能识别一个用户最常用的
+程序，也能把二进制文件和依赖性预先加载到内存，以提供更快速的访
+问。随着安装后的第一次重启，它会自动运行。
+·BleachBit（apt-get install bleachbit）释放磁盘空间，通过释放缓
+存、删除cookie、清除上网记录、粉碎临时文件、删除日志，以及丢弃
+其他一些非必需的文件来提高隐私性。使用高级技术，包括粉碎文件来
+防止恢复，擦除空闲磁盘空间来隐藏没有完全删除的文件的踪迹。</p>
+<p>~/.config/deepin/deepin-terminal/config.conf</p>
+<h3 id="执行命令">执行命令</h3>
+<pre tabindex="0"><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre><h2 id="配置vim">配置VIM</h2>
+<h3 id="打开终端执行命令">打开终端，执行命令</h3>
+<pre tabindex="0"><code>sudo gedit /etc/hosts
+</code></pre><h3 id="将以下两行文本添加到文本框中保存并退出">将以下两行文本添加到文本框中，保存并退出</h3>
+<pre tabindex="0"><code>192.30.255.112 github.com git
+185.31.16.184 github.global.ssl.fastly.net
+</code></pre><h3 id="执行命令-1">执行命令</h3>
+<pre tabindex="0"><code>sudo wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+</code></pre><p><a class="link" href="https://blog.csdn.net/LSG_Down/article/details/89319472"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/LSG_Down/article/details/89319472</a></p>
+<p><a class="link" href="https://www.jianshu.com/p/75cde8a80fd7"  target="_blank" rel="noopener"
+    >https://www.jianshu.com/p/75cde8a80fd7</a></p>
+<h2 id="安装sshpi及scppi">安装sshpi及scppi</h2>
+<p>sshpi.sh参考代码</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+#文件名：sshpi.sh
+#用途：远程连接树莓派
+
+function Usage() {
+	echo &#34;Usage: sshpi Username@pi&#34;
+	echo &#34;Like This：sshpi UserA@pi1&#34;
+}
+if [[ ! $# -eq 1  ]]; then
+	Usage
+	exit
+fi
+
+echo $1 | grep &#34;@&#34; &gt;/dev/zero 2&gt;&amp;1
+
+if [[ ! $? -eq 0 ]]; then
+	echo &#34;argument wrong！&#34;
+	Usage
+	exit
+fi
+Username=`echo $1 | cut -d &#34;@&#34; -f 1`
+if [[ ${Username}x == x ]]; then
+	echo &#34;Please input your username!&#34;
+	Usage
+	exit
+fi
+Hostname=`echo $1 | cut -d &#34;@&#34; -f 2`
+if [[ ${Hostname}x == x ]]; then
+	echo &#34;Please input Hostname of Pi!&#34;
+	Usage
+	exit
+fi
+echo $Hostname | grep -w &#34;^pi[1-9][0-9]\?&#34; &gt;/dev/null 2&gt;&amp;1
+if [[ ! $? -eq 0 ]]; then
+	echo &#34;Hostname is Wrong!&#34;
+	Usage
+	exit
+fi
+HostNum=`echo $Hostname | cut -c 3-`
+if [[ $HostNum -gt 22 ]]; then
+	echo &#34;Hostname is Wrong!&#34;
+	Usage
+	exit
+fi
+
+port=$[6530 + $HostNum]
+echo -e &#34;\033[46;30m You Will login\033[0m\033[46;31m $Hostname\033[0m\033[46;30m with Username \033[46;31m$Username\033[0m\033[46;30m, enjoy it!\033[0m&#34;
+ssh -p $port ${Username}@zentao.haizeix.tech
+</code></pre><p>scppi.sh参考代码</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+#文件名：scppi.sh
+#用途：远程拷贝文件，在树莓派和本机之间
+
+function Usage() {
+	echo &#34;Usage: scppi file_or_dir Username@piname:dest_file_or_dir&#34;
+	echo &#34;       scppi Username@piname:./file_or_dir  file_or_dir&#34;
+	echo &#34;Like This：scppi PiHealth pi@pi1:./new&#34;
+}
+if [[ ! $# -eq 2  ]]; then
+	Usage
+	exit
+fi
+#1.源
+#2.目标
+
+echo $1 | grep -q &#34;@&#34;
+
+if [[ $? -eq 0 ]]; then
+	remote=$1
+	local=$2
+else
+	remote=$2
+	local=$1
+fi
+
+echo $remote | grep @ | grep : &gt;/dev/null 2&gt;&amp;1
+if [[ ! $? -eq 0 ]]; then
+	echo &#34;argument wrong！&#34;
+	Usage
+	exit
+fi
+Username=`echo $remote | cut -d &#34;@&#34; -f 1`
+if [[ ${Username}x == x ]]; then
+	echo &#34;Please input your username!&#34;
+	Usage
+	exit
+fi
+Hostname=`echo $remote | cut -d &#34;@&#34; -f 2 | cut -d &#34;:&#34; -f 1`
+if [[ ${Hostname}x == x ]]; then
+	echo &#34;Please input Hostname of Pi!&#34;
+	Usage
+	exit
+fi
+echo $Hostname | grep -w &#34;^pi[1-9][0-9]\?&#34; &gt;/dev/null 2&gt;&amp;1
+if [[ ! $? -eq 0 ]]; then
+	echo &#34;Hostname is Wrong!&#34;
+	Usage
+	exit
+fi
+dir_file=`echo $remote | cut -d &#34;@&#34; -f 2 | cut -d &#34;:&#34; -f 2`
+if [[ ${dir_file}x == x ]]; then
+	echo &#34;Please input dest_file_or_dir of Pi!&#34;
+	Usage
+	exit
+fi
+
+HostNum=`echo $Hostname | cut -c 3-`
+
+if [[ $HostNum -gt 22 ]]; then
+	echo &#34;Hostname is Wrong!&#34;
+	Usage
+	exit
+fi
+
+port=$[6530 + $HostNum]
+echo -e &#34;\033[46;30m Coping \033[46;31m$1\033[46;30m to \033[46;31m$dir_file\033[46;30m on \033[46;31m$Hostname\033[46;30m with Username \033[46;31m$Username\033[46;30m, enjoy it!\033[0m&#34;
+
+if [[ $1 = $local ]]; then
+	scp -P $port -r $1  ${Username}@zentao.haizeix.tech:$dir_file
+else
+	scp -P $port -r ${Username}@zentao.haizeix.tech:$dir_file $local
+fi
+</code></pre><h3 id="打开终端执行命令-1">打开终端，执行命令</h3>
+<pre tabindex="0"><code>vim sshpi.sh
+</code></pre><h3 id="在vim文本框里粘贴sshpi脚本的代码保存并退出wq">在VIM文本框里粘贴sshpi脚本的代码，保存并退出（：wq）</h3>
+<h3 id="将sshpish重命名为sshpi赋予sshpi脚本可执行权限">将sshpi.sh重命名为sshpi,赋予sshpi脚本可执行权限</h3>
+<pre tabindex="0"><code>mv sshpi.sh sshpi
+chmod a+x sshpi
+</code></pre><h3 id="执行命令-2">执行命令</h3>
+<pre tabindex="0"><code>echo $PATH
+</code></pre><h3 id="将sshpi复制到path路径下">将sshpi复制到PATH路径下</h3>
+<pre tabindex="0"><code>cp sshpi /bin
+</code></pre><h3 id="同样的操作生成scppi脚本">同样的操作生成scppi脚本</h3>
+<h1 id="day02">DAY02</h1>
+<h2 id="设置免密登录">设置免密登录</h2>
+<h3 id="打开终端执行命令-2">打开终端，执行命令</h3>
+<pre tabindex="0"><code>sshpi lws@pi3
+</code></pre><p>暂时需要密码（haizei）来连接树莓派</p>
+<h3 id="在本机生成秘钥">在本机生成秘钥</h3>
+<pre tabindex="0"><code>ssh-keygen
+</code></pre><h3 id="将秘钥复制到authorized_keys文件中">将秘钥复制到authorized_keys文件中</h3>
+<pre tabindex="0"><code>cat .ssh/id_rsa.pub&gt;&gt;.ssh/authorized_keys
+</code></pre><h3 id="将本机的authorized_keys文件复制到树莓派中">将本机的authorized_keys文件复制到树莓派中</h3>
+<pre tabindex="0"><code>scppi .ssh/authorized_keys lws@pi3:/.ssh
+</code></pre><h3 id="再次连接树莓派验证是否成功">再次连接树莓派，验证是否成功</h3>
+<p>check.c</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;pwd.h&gt;
+
+int socket_connect(int port, char *host) {
+	int sockfd;
+	struct sockaddr_in dest_addr;
+	if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) &lt; 0) {
+		perror(&#34;socket() error&#34;);
+		return -1;
+	}
+
+	memset(&amp;dest_addr, 0, sizeof(dest_addr));
+	dest_addr.sin_family = AF_INET;
+	dest_addr.sin_port = htons(port);
+	dest_addr.sin_addr.s_addr = inet_addr(host);
+
+	if (connect(sockfd, (struct sockaddr *)&amp;dest_addr, sizeof(dest_addr)) &lt; 0) {
+		perror(&#34;connect() error&#34;);
+		return -1;
+	}
+	return sockfd;
+
+}
+
+int main() {
+	int  socket_fd;
+	struct passwd *pwd;
+	pwd = getpwuid(getuid());
+	char ip_addr[20] = &#34;192.168.1.40&#34;;
+	int port = 8888;
+	char username[20] = {0};
+	strcpy(username, pwd-&gt;pw_name);
+	socket_fd = socket_connect(port, ip_addr);
+	if (socket_fd &lt; 0)
+	{
+		exit(1);
+	}
+	if (send(socket_fd, username, strlen(username), 0) &gt; 0) {
+		printf(&#34;Check Success\n&#34;);
+	} 
+	close(socket_fd);
+	return 0;
+}
+</code></pre><p>gcc check.c -o check</p>
+<h2 id="vim的简单使用">VIM的简单使用</h2>
+<p><img src="https://ese3a9b6c5d0ic.prissl.qiqiuyun.net/course-activity-272/20190411093248-lntidnybu9wksckc/53eb89158008bece_img3?e=1563481633&amp;token=ExRD5wolmUnwwITVeSEXDQXizfxTRp7vnaMKJbO-:CAFs0zlzq99uvJ2s6B6SYjVIbcI="
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="vim的四种模式">VIM的四种模式</h3>
+<h3 id="普通模式">普通模式</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x d dd ndd dw d$ d^ dG dnG</td>
+<td>删除说明</td>
+</tr>
+<tr>
+<td>y yy yG ynG y$ y^</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>p P</td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td>gg GG ngg</td>
+<td>移动光标</td>
+</tr>
+<tr>
+<td>R cc cG cnG c$ c^</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>u ctrl+r ctrl+v</td>
+<td>undo redo 可视块操作</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="插入模式">插入模式</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>i</th>
+<th>在光标之前追加</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>在光标之后追加</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在一行的结尾处追加</td>
+</tr>
+<tr>
+<td>I</td>
+<td>在一行的开头处插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标所在位置的下一行打开新行插入</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在光标所在位置的上一行打开新行插入</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="命令模式">命令模式</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w :q :wq :x :wq! :q!</td>
+<td>文件的保存与退出操作</td>
+</tr>
+<tr>
+<td>:args</td>
+<td>显示文件名称，切换文件</td>
+</tr>
+<tr>
+<td>:e foo.txt</td>
+<td>打开foo.txt</td>
+</tr>
+<tr>
+<td>:saveas ~/foo.txt</td>
+<td>另存为~/foo.txt</td>
+</tr>
+<tr>
+<td>:split :vsplit</td>
+<td>切分窗口</td>
+</tr>
+<tr>
+<td>:set</td>
+<td>设置选项</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="其他使用技巧">其他使用技巧</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Ctrl+z</th>
+<th>挂起</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fg</td>
+<td>返回前台</td>
+</tr>
+<tr>
+<td>/findstring</td>
+<td>查找</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="python的升级与tldr的升级">Python的升级与tldr的升级</h2>
+<h3 id="打开终端执行命令-3">打开终端，执行命令</h3>
+<pre tabindex="0"><code>sudo apt-get install python
+sudo apt-get install python3
+</code></pre><h3 id="查看python版本">查看Python版本</h3>
+<pre tabindex="0"><code>python -V
+python3 -V
+</code></pre><h3 id="获取python路径">获取Python路径</h3>
+<pre tabindex="0"><code>which python
+</code></pre><h3 id="查看python">查看Python</h3>
+<pre tabindex="0"><code>ls -al /usr/bin/python
+</code></pre><h3 id="强制删除python将python35指向python">强制删除Python，将Python3.5指向Python</h3>
+<pre tabindex="0"><code>sudo rm /usr/bin/python
+sudo ln /usr/bin/python3.5 /usr/bin/python
+</code></pre><h3 id="安装pyhton3-pip">安装pyhton3-pip</h3>
+<pre tabindex="0"><code>sudo apt-get insatll python3-pip
+</code></pre><h3 id="升级pip">升级pip</h3>
+<pre tabindex="0"><code>pip install --upgrade pip
+</code></pre><h3 id="pip3-list报错解决">pip3 list报错，解决</h3>
+<pre tabindex="0"><code>sudo vim /usr/bin/pip3
+</code></pre><p>在文本框中pip后加上._internal</p>
+<h3 id="安装tldr">安装tldr</h3>
+<pre tabindex="0"><code>sudo pip install tldr
+</code></pre><h2 id="linux极简入门">Linux极简入门</h2>
+<h3 id="软件的安装与卸载">软件的安装与卸载</h3>
+<ul>
+<li>apt-get update</li>
+<li>apt-get upgrade</li>
+<li>apt-get install xxx</li>
+<li>apt-get &ndash;purge remove xxx</li>
+<li>apt-cache search xxx</li>
+</ul>
+<h3 id="目录">目录</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>切换当前目录</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>打印当期目录工作</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>创建目录</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cd切换工作">cd切换工作</h3>
+<ul>
+<li>
+<p>cd /etc	直接切换到/etc目录</p>
+<p>cd ..	切换到上层目录</p>
+<p>cd .	切换到当前目录</p>
+<p>cd	回到自己的家目录</p>
+<p>cd ~	回到自己的家目录</p>
+<p>cd -	回到上次工作目录</p>
+</li>
+</ul>
+<h3 id="pwd打印当前工作目录">pwd打印当前工作目录</h3>
+<p>pwd [-LP]</p>
+<ul>
+<li>-L	显示逻辑工作目录
+-P	显示物理工作目录</li>
+</ul>
+<h3 id="mkdir创建目录">mkdir创建目录</h3>
+<p>mkdir [-pm] <!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p>-p	自动创建父目录</p>
+<p>-m	设置权限</p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

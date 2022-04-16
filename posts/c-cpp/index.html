@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Interview Q&amp;amp;A C/CPP const int getValue(); // 普通成员函数
+? int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值
+const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变)
+char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变)
+? const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量
+#pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐
+#pragma pack(n) 使用
+#pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐  struct test {  char m1;  double m4;  int m3; };  #pragma pack(pop) // 恢复对齐状态 位域 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。'><title>c/cpp</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/c-cpp/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='c/cpp'>
+<meta property='og:description' content='Interview Q&amp;amp;A C/CPP const int getValue(); // 普通成员函数
+? int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值
+const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变)
+char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变)
+? const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量
+#pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐
+#pragma pack(n) 使用
+#pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐  struct test {  char m1;  double m4;  int m3; };  #pragma pack(pop) // 恢复对齐状态 位域 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/c-cpp/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="c/cpp">
+<meta name="twitter:description" content="Interview Q&amp;amp;A C/CPP const int getValue(); // 普通成员函数
+? int getValue() const; // 常成员函数，不得修改类中的任何数据成员的值
+const char* p2 = greeting; // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变)
+char* const p3 = greeting; // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变)
+? const char* const p4 = greeting; // 自身是常量的指针，指向字符数组常量
+#pragma pack(n) 设定结构体、联合以及类成员变量以 n 字节方式对齐
+#pragma pack(n) 使用
+#pragma pack(push) // 保存对齐状态 #pragma pack(4) // 设定为 4 字节对齐  struct test {  char m1;  double m4;  int m3; };  #pragma pack(pop) // 恢复对齐状态 位域 Bit mode: 2; // mode 占 2 位 类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/c-cpp/">c/cpp</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="interview-qa-ccpp">Interview Q&amp;A C/CPP</h1>
+<h2 id="const">const</h2>
+<p>int getValue();             // 普通成员函数</p>
+<p>? int getValue() const;       // 常成员函数，不得修改类中的任何数据成员的值</p>
+<p>const char* p2 = greeting;          // 指针变量，指向字符数组常量（const 后面是 char，说明指向的字符（char）不可改变)</p>
+<p>char* const p3 = greeting;          // 自身是常量的指针，指向字符数组变量（const 后面是 p3，说明 p3 指针自身不可改变)</p>
+<p>? const char* const p4 = greeting;    // 自身是常量的指针，指向字符数组常量</p>
+<h2 id="pragma-packn">#pragma pack(n)</h2>
+<p>设定结构体、联合以及类成员变量以 n 字节方式对齐</p>
+<p>#pragma pack(n) 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#pragma pack(push)  </span><span style="color:#75715e">// 保存对齐状态
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#pragma pack(4)     </span><span style="color:#75715e">// 设定为 4 字节对齐
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">test</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> m1;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> m4;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> m3;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#pragma pack(pop)   </span><span style="color:#75715e">// 恢复对齐状态
+</span></span></span></code></pre></div><h2 id="位域">位域</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Bit mode: <span style="color:#ae81ff">2</span>;    <span style="color:#75715e">// mode 占 2 位
+</span></span></span></code></pre></div><p>类可以将其（非静态）数据成员定义为位域（bit-field），在一个位域中含有一定数量的二进制位。当一个程序需要向其他程序或硬件设备传递二进制数据时，通常会用到位域。</p>
+<ul>
+<li>位域在内存中的布局是与机器有关的</li>
+<li>位域的类型必须是整型或枚举类型，带符号类型中的位域的行为将因具体实现而定</li>
+<li>取地址运算符（&amp;）不能作用于位域，任何指针都无法指向类的位域</li>
+</ul>
+<h2 id="explicit显式关键字">explicit（显式）关键字</h2>
+<ul>
+<li>explicit 修饰构造函数时，可以防止隐式转换和复制初始化</li>
+<li>explicit 修饰转换函数时，可以防止隐式转换，但按语境转换除外</li>
+</ul>
+<p>explicit 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    A(<span style="color:#66d9ef">int</span>) { }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">bool</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> true; }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">B</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">explicit</span> <span style="color:#a6e22e">B</span>(<span style="color:#66d9ef">int</span>) {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">explicit</span> <span style="color:#66d9ef">operator</span> <span style="color:#a6e22e">bool</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> true; }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doA</span>(A a) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doB</span>(B b) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    A a1(<span style="color:#ae81ff">1</span>);        <span style="color:#75715e">// OK：直接初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A a2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;        <span style="color:#75715e">// OK：复制初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A a3{ <span style="color:#ae81ff">1</span> };        <span style="color:#75715e">// OK：直接列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A a4 <span style="color:#f92672">=</span> { <span style="color:#ae81ff">1</span> };        <span style="color:#75715e">// OK：复制列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    A a5 <span style="color:#f92672">=</span> (A)<span style="color:#ae81ff">1</span>;        <span style="color:#75715e">// OK：允许 static_cast 的显式转换 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    doA(<span style="color:#ae81ff">1</span>);            <span style="color:#75715e">// OK：允许从 int 到 A 的隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (a1);        <span style="color:#75715e">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> a6<span style="color:#960050;background-color:#1e0010">（</span>a1<span style="color:#960050;background-color:#1e0010">）</span>;        <span style="color:#75715e">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> a7 <span style="color:#f92672">=</span> a1;        <span style="color:#75715e">// OK：使用转换函数 A::operator bool() 的从 A 到 bool 的隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> a8 <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span>(a1);  <span style="color:#75715e">// OK ：static_cast 进行直接初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    B b1(<span style="color:#ae81ff">1</span>);        <span style="color:#75715e">// OK：直接初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    B b2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;        <span style="color:#75715e">// 错误：被 explicit 修饰构造函数的对象不可以复制初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    B b3{ <span style="color:#ae81ff">1</span> };        <span style="color:#75715e">// OK：直接列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    B b4 <span style="color:#f92672">=</span> { <span style="color:#ae81ff">1</span> };        <span style="color:#75715e">// 错误：被 explicit 修饰构造函数的对象不可以复制列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    B b5 <span style="color:#f92672">=</span> (B)<span style="color:#ae81ff">1</span>;        <span style="color:#75715e">// OK：允许 static_cast 的显式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    doB(<span style="color:#ae81ff">1</span>);            <span style="color:#75715e">// 错误：被 explicit 修饰构造函数的对象不可以从 int 到 B 的隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (b1);        <span style="color:#75715e">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> b6(b1);        <span style="color:#75715e">// OK：被 explicit 修饰转换函数 B::operator bool() 的对象可以从 B 到 bool 的按语境转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> b7 <span style="color:#f92672">=</span> b1;        <span style="color:#75715e">// 错误：被 explicit 修饰转换函数 B::operator bool() 的对象不可以隐式转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span> b8 <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span>(b1);  <span style="color:#75715e">// OK：static_cast 进行直接初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="c-实现-c-类decltype">C 实现 C++ 类decltype</h2>
+<p>C 实现 C++ 的面向对象特性（封装、继承、多态）</p>
+<ul>
+<li>封装：使用函数指针把属性与方法封装到结构体中</li>
+<li>继承：结构体嵌套</li>
+<li>多态：父类与子类方法的函数指针不同</li>
+</ul>
+<h2 id="构造函数的-using-声明">构造函数的 using 声明</h2>
+<p>在 C++11 中，派生类能够重用其直接基类定义的构造函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span> <span style="color:#f92672">:</span> Base {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> Base<span style="color:#f92672">::</span>Base;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>如上 using 声明，对于基类的每个构造函数，编译器都生成一个与之对应（形参列表完全相同）的派生类构造函数。生成如下类型构造函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>Derived(parms) <span style="color:#f92672">:</span> Base(args) { }
+</span></span></code></pre></div><h2 id="enum-枚举类型">enum 枚举类型</h2>
+<h3 id="限定作用域的枚举类型">限定作用域的枚举类型</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">open_modes</span> { input, output, append };
+</span></span></code></pre></div><h3 id="不限定作用域的枚举类型">不限定作用域的枚举类型</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">color</span> { red, yellow, green };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> { floatPrec <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>, doublePrec <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> };
+</span></span></code></pre></div><h2 id="decltype">decltype</h2>
+<p>decltype 关键字用于检查实体的声明类型或表达式的类型及值分类。语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">decltype</span> ( expression )
+</span></span></code></pre></div><p>decltype 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 尾置返回允许我们在参数列表之后声明返回类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> It<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> fcn(It beg, It end) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">decltype</span>(<span style="color:#f92672">*</span>beg)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理序列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span>beg;    <span style="color:#75715e">// 返回序列中一个元素的引用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 为了使用模板参数成员，必须用 typename
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> It<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> fcn2(It beg, It end) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">typename</span> remove_reference<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(<span style="color:#f92672">*</span>beg)<span style="color:#f92672">&gt;::</span>type
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 处理序列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span>beg;    <span style="color:#75715e">// 返回序列中一个元素的拷贝
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="引用折叠">引用折叠</h2>
+<ul>
+<li>X&amp; &amp;、X&amp; &amp;&amp;、X&amp;&amp; &amp; 可折叠成 X&amp;</li>
+<li>X&amp;&amp; &amp;&amp; 可折叠成 X&amp;&amp;</li>
+</ul>
+<h2 id="initializer_list-列表初始化">initializer_list 列表初始化</h2>
+<p>用花括号初始化器列表初始化一个对象，其中对应构造函数接受一个 std::initializer_list 参数.</p>
+<p>initializer_list 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;initializer_list&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">S</span> {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> v;
+</span></span><span style="display:flex;"><span>    S(std<span style="color:#f92672">::</span>initializer_list<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> l) <span style="color:#f92672">:</span> v(l) {
+</span></span><span style="display:flex;"><span>         std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;constructed with a &#34;</span> <span style="color:#f92672">&lt;&lt;</span> l.size() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;-element list</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">append</span>(std<span style="color:#f92672">::</span>initializer_list<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> l) {
+</span></span><span style="display:flex;"><span>        v.insert(v.end(), l.begin(), l.end());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">const</span> T<span style="color:#f92672">*</span>, std<span style="color:#f92672">::</span>size_t<span style="color:#f92672">&gt;</span> c_arr() <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#f92672">&amp;</span>v[<span style="color:#ae81ff">0</span>], v.size()};  <span style="color:#75715e">// 在 return 语句中复制列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                                   <span style="color:#75715e">// 这不使用 std::initializer_list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> templated_fn(T) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    S<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> s <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>}; <span style="color:#75715e">// 复制初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    s.append({<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>});      <span style="color:#75715e">// 函数调用中的列表初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The vector size is now &#34;</span> <span style="color:#f92672">&lt;&lt;</span> s.c_arr().second <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; ints:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> n : s.v)
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> n <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Range-for over brace-init-list: </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> x : {<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>}) <span style="color:#75715e">// auto 的规则令此带范围 for 工作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> al <span style="color:#f92672">=</span> {<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>};   <span style="color:#75715e">// auto 的特殊规则
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;The list bound to auto has size() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> al.size() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//    templated_fn({1, 2, 3}); // 编译错误！“ {1, 2, 3} ”不是表达式，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                             <span style="color:#75715e">// 它无类型，故 T 无法推导
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    templated_fn<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>initializer_list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span>({<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}); <span style="color:#75715e">// OK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    templated_fn<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span>({<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>});           <span style="color:#75715e">// 也 OK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="定位-new">定位 new</h2>
+<p>定位 new（placement new）允许我们向 new 传递额外的地址参数，从而在预先指定的内存区域创建对象。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">new</span> (place_address) type
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> (place_address) type (initializers)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> (place_address) type [size]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> (place_address) type [size] { braced initializer list }
+</span></span></code></pre></div><ul>
+<li><code>place_address</code> 是个指针</li>
+<li><code>initializers</code> 提供一个（可能为空的）以逗号分隔的初始值列表</li>
+</ul>
+<h2 id="运行时类型信息-rtti">运行时类型信息 (RTTI)</h2>
+<h3 id="dynamic_cast">dynamic_cast</h3>
+<ul>
+<li>用于多态类型的转换</li>
+</ul>
+<h3 id="typeid">typeid</h3>
+<ul>
+<li>typeid 运算符允许在运行时确定对象的类型</li>
+<li>type_id 返回一个 type_info 对象的引用</li>
+<li>如果想通过基类的指针获得派生类的数据类型，基类必须带有虚函数</li>
+<li>只能获取对象的实际类型</li>
+</ul>
+<h3 id="type_info">type_info</h3>
+<ul>
+<li>type_info 类描述编译器在程序中生成的类型信息。 此类的对象可以有效存储指向类型的名称的指针。 type_info 类还可存储适合比较两个类型是否相等或比较其排列顺序的编码值。 类型的编码规则和排列顺序是未指定的，并且可能因程序而异。</li>
+<li>头文件：typeinfo</li>
+</ul>
+<p>typeid、type_info 使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Flyable</span>                       <span style="color:#75715e">// 能飞的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> takeoff() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;     <span style="color:#75715e">// 起飞
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">land</span>() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;        <span style="color:#75715e">// 降落
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Flyable         <span style="color:#75715e">// 鸟
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> foraging() {...}           <span style="color:#75715e">// 觅食
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">takeoff</span>() {...}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">land</span>() {...}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>Bird(){}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Plane</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Flyable        <span style="color:#75715e">// 飞机
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> carry() {...}              <span style="color:#75715e">// 运输
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">takeoff</span>() {...}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">land</span>() {...}
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">type_info</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> name() <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">==</span> (<span style="color:#66d9ef">const</span> type_info <span style="color:#f92672">&amp;</span> rhs) <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">!=</span> (<span style="color:#66d9ef">const</span> type_info <span style="color:#f92672">&amp;</span> rhs) <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">before</span>(<span style="color:#66d9ef">const</span> type_info <span style="color:#f92672">&amp;</span> rhs) <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>type_info();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doSomething</span>(Flyable <span style="color:#f92672">*</span>obj)                 <span style="color:#75715e">// 做些事情
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>    obj<span style="color:#f92672">-&gt;</span>takeoff();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">typeid</span>(<span style="color:#f92672">*</span>obj).name() <span style="color:#f92672">&lt;&lt;</span> endl;        <span style="color:#75715e">// 输出传入对象类型（&#34;class Bird&#34; or &#34;class Plane&#34;）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeid</span>(<span style="color:#f92672">*</span>obj) <span style="color:#f92672">==</span> <span style="color:#66d9ef">typeid</span>(Bird))            <span style="color:#75715e">// 判断对象类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span>        Bird <span style="color:#f92672">*</span>bird <span style="color:#f92672">=</span> <span style="color:#66d9ef">dynamic_cast</span><span style="color:#f92672">&lt;</span>Bird <span style="color:#f92672">*&gt;</span>(obj); <span style="color:#75715e">// 对象转化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        bird<span style="color:#f92672">-&gt;</span>foraging();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    obj<span style="color:#f92672">-&gt;</span>land();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    Bird <span style="color:#f92672">*</span>b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bird();
+</span></span><span style="display:flex;"><span>    doSomething(b);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">delete</span> b;
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

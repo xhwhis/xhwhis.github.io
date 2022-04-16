@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='类和对象 类型与变量    类型 变量     int a   long long b   char c   double d   float e    类型 = 类型数据 &#43; 类型操作
+类与对象    类 对象     cat garfield   dog odie   people hug    访问权限    public 公共访问权限     private 私有访问权限   protected 受保护的访问权限    成员属性与方法 #include &amp;lt;iostream&amp;gt;using namespace std;  struct A {  int x, y;  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl;  return ;  } };  struct B {  private:  int x, y;  public:  void set_xy(int x, int y) {  cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl;  this-&amp;gt;x = x, this-&amp;gt;y = y;  }  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl;  cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl;  return ;  } };  int main() {  A a;  B b;  a.'><title>类和对象1</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='类和对象1'>
+<meta property='og:description' content='类和对象 类型与变量    类型 变量     int a   long long b   char c   double d   float e    类型 = 类型数据 &#43; 类型操作
+类与对象    类 对象     cat garfield   dog odie   people hug    访问权限    public 公共访问权限     private 私有访问权限   protected 受保护的访问权限    成员属性与方法 #include &amp;lt;iostream&amp;gt;using namespace std;  struct A {  int x, y;  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl;  return ;  } };  struct B {  private:  int x, y;  public:  void set_xy(int x, int y) {  cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl;  this-&amp;gt;x = x, this-&amp;gt;y = y;  }  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl;  cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl;  return ;  } };  int main() {  A a;  B b;  a.'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="类和对象1">
+<meta name="twitter:description" content="类和对象 类型与变量    类型 变量     int a   long long b   char c   double d   float e    类型 = 类型数据 &#43; 类型操作
+类与对象    类 对象     cat garfield   dog odie   people hug    访问权限    public 公共访问权限     private 私有访问权限   protected 受保护的访问权限    成员属性与方法 #include &amp;lt;iostream&amp;gt;using namespace std;  struct A {  int x, y;  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world a&amp;#34; &amp;lt;&amp;lt; endl;  return ;  } };  struct B {  private:  int x, y;  public:  void set_xy(int x, int y) {  cout &amp;lt;&amp;lt; this &amp;lt;&amp;lt; endl;  this-&amp;gt;x = x, this-&amp;gt;y = y;  }  void echo() {  cout &amp;lt;&amp;lt; &amp;#34;hello world b&amp;#34; &amp;lt;&amp;lt; endl;  cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; y &amp;lt;&amp;lt; endl;  return ;  } };  int main() {  A a;  B b;  a.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A11/">类和对象1</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="类和对象">类和对象</h1>
+<h2 id="类型与变量">类型与变量</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>a</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>b</td>
+</tr>
+<tr>
+<td>char</td>
+<td>c</td>
+</tr>
+<tr>
+<td>double</td>
+<td>d</td>
+</tr>
+<tr>
+<td>float</td>
+<td>e</td>
+</tr>
+</tbody>
+</table></div>
+<p>类型 = 类型数据 + 类型操作</p>
+<h2 id="类与对象">类与对象</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>类</th>
+<th>对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat</td>
+<td>garfield</td>
+</tr>
+<tr>
+<td>dog</td>
+<td>odie</td>
+</tr>
+<tr>
+<td>people</td>
+<td>hug</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="访问权限">访问权限</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>public</th>
+<th>公共访问权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td>私有访问权限</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>受保护的访问权限</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="成员属性与方法">成员属性与方法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">echo</span>() {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;hello world a&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">B</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> set_xy(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>x <span style="color:#f92672">=</span> x, <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>y <span style="color:#f92672">=</span> y;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">echo</span>() {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;hello world b&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> y <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    A a;
+</span></span><span style="display:flex;"><span>    B b;
+</span></span><span style="display:flex;"><span>    a.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    b.set_xy(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> a.x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> a.y <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    b.echo();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="构造函数与析构函数">构造函数与析构函数</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>构造/析构函数</th>
+<th>使用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>默认构造函数</td>
+<td>People a;</td>
+</tr>
+<tr>
+<td>People(string name)</td>
+<td>People a(&ldquo;hug&rdquo;);</td>
+</tr>
+<tr>
+<td>People(const People &amp;a)</td>
+<td>拷贝构造，与=不等价</td>
+</tr>
+<tr>
+<td>~People();</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    A() <span style="color:#f92672">:</span> next(<span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; default constructor&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    A(A <span style="color:#f92672">*</span>obj) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> obj;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">1000</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    A(<span style="color:#66d9ef">int</span> n) <span style="color:#f92672">:</span> next(<span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; an int constructor&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> n, y <span style="color:#f92672">=</span> n;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    A(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>obj) <span style="color:#f92672">:</span> next(<span style="color:#66d9ef">nullptr</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; copy constructor&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>x <span style="color:#f92672">=</span> obj.x, <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>y <span style="color:#f92672">=</span> obj.y;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">output</span>() {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>y <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>arr;
+</span></span><span style="display:flex;"><span>    A <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">~</span>A() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>next) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">delete</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>next<span style="color:#f92672">-&gt;</span>arr;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">this</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; destructor&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x) {
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">+=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A aa;
+</span></span><span style="display:flex;"><span>A <span style="color:#a6e22e">bb</span>(<span style="color:#f92672">&amp;</span>aa);
+</span></span><span style="display:flex;"><span>A <span style="color:#a6e22e">cc</span>(<span style="color:#f92672">&amp;</span>bb);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>    func(n);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> n <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;pre position&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    A a;
+</span></span><span style="display:flex;"><span>    A b <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
+</span></span><span style="display:flex;"><span>    A c(a);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;a = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>a <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;b = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;c = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>c <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;aa = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>aa <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;bb = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>bb <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;cc = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">&amp;</span>cc <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    b.output();
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>    b.output();
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;next position&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="类的构造函数">类的构造函数</h4>
+<p>类的构造函数是类的一种特殊的成员函数，它会在每次创建类的新对象时执行。</p>
+<p>构造函数的名称与类的名称是完全相同的，并且不会返回任何类型，也不会返回 void。构造函数可用于为某些成员变量设置初始值。</p>
+<h4 id="类的析构函数">类的析构函数</h4>
+<p>类的析构函数是类的一种特殊的成员函数，它会在每次删除所创建的对象时执行。</p>
+<p>析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号 (~) 作为前缀，它不会返回任何值，也不能带有任何参数。析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</p>
+<p><a class="link" href="https://www.runoob.com/cplusplus/cpp-constructor-destructor.html"  target="_blank" rel="noopener"
+    >https://www.runoob.com/cplusplus/cpp-constructor-destructor.html</a></p>
+<p>结构体与类</p>
+<p>struct 访问权限默认为public</p>
+<p>class 访问权限默认为private</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

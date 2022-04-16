@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='DAY03 Linux极简入门 文件与目录的管理    命令 功能     ls 显示文件及目录信息   cp 拷贝   rm 删除   mv 移动    cp拷贝 cp [irapdslu] 选项
+ -i	若文件存在，询问用户 -r	递归复制 -a	pdr的集合 -p	连同文件属性一起拷贝 -d	若源文件为连接文件的属性，则复制连接文件的属性 -s	拷贝为软连接 -l	拷贝为硬连接 -u	源文件比目的文件新才拷贝  rm删除 rm [irf] &amp;lt;dir_or_file&amp;gt;
+选项
+ -i	互动模式 -r	递归删除 -f	force  mv移动 mv [ifu] &amp;lt;source&amp;hellip;&amp;gt;  mv source1 source2 souce3 dir  选项'><title>note2</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/note2/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='note2'>
+<meta property='og:description' content='DAY03 Linux极简入门 文件与目录的管理    命令 功能     ls 显示文件及目录信息   cp 拷贝   rm 删除   mv 移动    cp拷贝 cp [irapdslu] 选项
+ -i	若文件存在，询问用户 -r	递归复制 -a	pdr的集合 -p	连同文件属性一起拷贝 -d	若源文件为连接文件的属性，则复制连接文件的属性 -s	拷贝为软连接 -l	拷贝为硬连接 -u	源文件比目的文件新才拷贝  rm删除 rm [irf] &amp;lt;dir_or_file&amp;gt;
+选项
+ -i	互动模式 -r	递归删除 -f	force  mv移动 mv [ifu] &amp;lt;source&amp;hellip;&amp;gt;  mv source1 source2 souce3 dir  选项'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/note2/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="note2">
+<meta name="twitter:description" content="DAY03 Linux极简入门 文件与目录的管理    命令 功能     ls 显示文件及目录信息   cp 拷贝   rm 删除   mv 移动    cp拷贝 cp [irapdslu] 选项
+ -i	若文件存在，询问用户 -r	递归复制 -a	pdr的集合 -p	连同文件属性一起拷贝 -d	若源文件为连接文件的属性，则复制连接文件的属性 -s	拷贝为软连接 -l	拷贝为硬连接 -u	源文件比目的文件新才拷贝  rm删除 rm [irf] &amp;lt;dir_or_file&amp;gt;
+选项
+ -i	互动模式 -r	递归删除 -f	force  mv移动 mv [ifu] &amp;lt;source&amp;hellip;&amp;gt;  mv source1 source2 souce3 dir  选项">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/note2/">note2</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="day03">DAY03</h1>
+<h2 id="linux极简入门">Linux极简入门</h2>
+<h3 id="文件与目录的管理">文件与目录的管理</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls</td>
+<td>显示文件及目录信息</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>拷贝</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>移动</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cp拷贝">cp拷贝</h3>
+<p>cp [irapdslu] <!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>选项</p>
+<ul>
+<li>-i	若文件存在，询问用户</li>
+<li>-r	递归复制</li>
+<li>-a	pdr的集合</li>
+<li>-p	连同文件属性一起拷贝</li>
+<li>-d	若源文件为连接文件的属性，则复制连接文件的属性</li>
+<li>-s	拷贝为软连接</li>
+<li>-l	拷贝为硬连接</li>
+<li>-u	源文件比目的文件新才拷贝</li>
+</ul>
+<h3 id="rm删除">rm删除</h3>
+<p>rm [irf] &lt;dir_or_file&gt;</p>
+<p>选项</p>
+<ul>
+<li>-i	互动模式</li>
+<li>-r	递归删除</li>
+<li>-f	force</li>
+</ul>
+<h3 id="mv移动">mv移动</h3>
+<p>mv [ifu] &lt;source&hellip;&gt; <!-- raw HTML omitted --></p>
+<ul>
+<li>mv source1 source2 souce3 dir</li>
+</ul>
+<p>选项</p>
+<ul>
+<li>-i	互动模式</li>
+<li>-f	force</li>
+<li>-u	源文件更新才会移动</li>
+</ul>
+<h3 id="文件内容的查阅">文件内容的查阅</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat</td>
+<td>正向连接读</td>
+</tr>
+<tr>
+<td>tac</td>
+<td>反向连接读</td>
+</tr>
+<tr>
+<td>nl</td>
+<td>输出行号显示文件</td>
+</tr>
+<tr>
+<td>more</td>
+<td>一页一页的显示文件内容</td>
+</tr>
+<tr>
+<td>less</td>
+<td>与more相似，但是可以上下翻看</td>
+</tr>
+<tr>
+<td>head</td>
+<td>只看头几行</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>只看末尾几行</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cat正向连续读">cat正向连续读</h3>
+<p>cat [-AbEnTv] <!-- raw HTML omitted --></p>
+<p>选项:</p>
+<ul>
+<li>-A:相当于-vET</li>
+<li>-v:列出看不出的字符</li>
+<li>-E:显示断行符为$</li>
+<li>-T:显示TAB为^T</li>
+<li>-b:列出行号</li>
+<li>-n:列出行号,连同空行也编号</li>
+</ul>
+<h3 id="tac反向连续读">tac反向连续读</h3>
+<p>刚好与cat相反,从最后一行开始打印</p>
+<h3 id="nl输出行号显示文件">nl输出行号显示文件</h3>
+<p>nl [-bnw] <!-- raw HTML omitted --></p>
+<p>选项</p>
+<ul>
+<li>-b:行号指定的方式</li>
+<li>
+<ul>
+<li>-b a:相当于cat -n</li>
+<li>-b t:相当于cat -b</li>
+</ul>
+</li>
+<li>-n:列出行号的表示方法</li>
+<li>
+<ul>
+<li>-n ln:行号在屏幕最左边显示</li>
+<li>-n rn:行号在自己字段的最右边显示</li>
+<li>-n rz:行号在自己字段的最右边显示,前面自动补全0</li>
+</ul>
+</li>
+<li>-w <!-- raw HTML omitted -->:行号所占位数</li>
+</ul>
+<h3 id="more按页查看">more按页查看</h3>
+<p>more file</p>
+<ul>
+<li>/string	向下查找string关键字</li>
+<li>:f	显示文件名称和当前显示的行数</li>
+<li>q	离开</li>
+</ul>
+<h3 id="less按页查看">less按页查看</h3>
+<p>less file</p>
+<ul>
+<li>/string	向下查找	n:继续向下查找</li>
+<li>/?string	反向查找	N:继续反向查询</li>
+</ul>
+<h3 id="head查看头几行">head查看头几行</h3>
+<p>head [-n num] <!-- raw HTML omitted --></p>
+<ul>
+<li>-n num:显示前num行</li>
+</ul>
+<h3 id="tail查看末尾几行">tail查看末尾几行</h3>
+<p>tail [-n num] <!-- raw HTML omitted --></p>
+<ul>
+<li>-n num:显示文件后num行</li>
+<li>-f:force</li>
+</ul>
+<p>如何查看一个文件的101行到120行?</p>
+<p>man ls | nl -b a -w 5 -n rz | head -n 120 | tail -n 20</p>
+<h3 id="man手册">man手册</h3>
+<ol>
+<li>man手册页分为下面几个部分:</li>
+<li>普通命令</li>
+<li>内核提供的系统调用</li>
+<li>库调用(C库函数)</li>
+<li>特殊文件(大多数在/dev目录下)和设备</li>
+<li>文件格式规范</li>
+<li>游戏</li>
+<li>杂项(及其规范)</li>
+<li>系统管理命令(通常需要root权限)和守护进程</li>
+</ol>
+<h2 id="配置wifi">配置wifi</h2>
+<h3 id="打开终端执行命令">打开终端,执行命令</h3>
+<pre tabindex="0"><code>sudo service NetworkManager stop	#关闭NetworkManager
+sudo service NetworkManager start	#开启NetworkManager
+</code></pre><h3 id="执行命令查看网卡命名">执行命令,查看网卡命名</h3>
+<pre tabindex="0"><code>ifcongif -a
+</code></pre><h3 id="更改interfaces配置">更改interfaces配置</h3>
+<pre tabindex="0"><code>sudo vim /etc/network/interfaces
+</code></pre><p>在文本框中输入,保存并退出</p>
+<pre tabindex="0"><code>auto wlp3s0
+allow-hotplug wlp3s0
+iface wlp3s0 inet dhcp
+pre-up wpa_supplicant -Dwext -i wlp3s0 -c /etc/wpa_supplicant/wpa_supplicant.conf -B
+</code></pre><h3 id="编辑wpa_supplicantconf">编辑wpa_supplicant.conf</h3>
+<pre tabindex="0"><code>sudo vim /etc/wpa_supplicant/wpa_supplicant.conf 
+</code></pre><p>在文本框中输入,保存并退出</p>
+<pre tabindex="0"><code>country=CN
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+    ssid=&#34;HaiZei_Tech&#34;
+    psk=&#34;HaiZei731.&#34;
+    scan_ssid=1
+    priority=3
+}
+</code></pre><h3 id="更改dns">更改DNS</h3>
+<pre tabindex="0"><code>sudo vim /etc/resolv.conf
+</code></pre><p>nameserver 8.8.8.8</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='printf输出颜色和ANSI控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &amp;ldquo;/033[m&amp;rdquo;
+#define RED &amp;ldquo;/033[0;32;31m&amp;rdquo;
+#define LIGHT_RED &amp;ldquo;/033[1;31m&amp;rdquo;
+#define GREEN &amp;ldquo;/033[0;32;32m&amp;rdquo;
+#define LIGHT_GREEN &amp;ldquo;/033[1;32m&amp;rdquo;
+#define BLUE &amp;ldquo;/033[0;32;34m&amp;rdquo;
+#define LIGHT_BLUE &amp;ldquo;/033[1;34m&amp;rdquo;
+#define DARY_GRAY &amp;ldquo;/033[1;30m&amp;rdquo;
+#define CYAN &amp;ldquo;/033[0;36m&amp;rdquo;
+#define LIGHT_CYAN &amp;ldquo;/033[1;36m&amp;rdquo;
+#define PURPLE &amp;ldquo;/033[0;35m&amp;rdquo;
+#define LIGHT_PURPLE &amp;ldquo;/033[1;35m&amp;rdquo;
+#define BROWN &amp;ldquo;/033[0;33m&amp;rdquo;
+#define YELLOW &amp;ldquo;/033[1;33m&amp;rdquo;
+#define LIGHT_GRAY &amp;ldquo;/033[0;37m&amp;rdquo;
+#define WHITE &amp;ldquo;/033[1;37m&amp;rdquo;
+比如：
+printf(&amp;quot;/033[31m ####&amp;mdash;&amp;ndash;&amp;gt;&amp;gt; /033[32m&amp;quot; &amp;ldquo;hello/n&amp;rdquo; &amp;ldquo;/033[m&amp;rdquo;)
+int main()
+{
+printf( CYAN &amp;ldquo;current function is %s &amp;quot; GREEN &amp;quot; file line is %d/n&amp;rdquo; NONE,'><title>printf</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/printf/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='printf'>
+<meta property='og:description' content='printf输出颜色和ANSI控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &amp;ldquo;/033[m&amp;rdquo;
+#define RED &amp;ldquo;/033[0;32;31m&amp;rdquo;
+#define LIGHT_RED &amp;ldquo;/033[1;31m&amp;rdquo;
+#define GREEN &amp;ldquo;/033[0;32;32m&amp;rdquo;
+#define LIGHT_GREEN &amp;ldquo;/033[1;32m&amp;rdquo;
+#define BLUE &amp;ldquo;/033[0;32;34m&amp;rdquo;
+#define LIGHT_BLUE &amp;ldquo;/033[1;34m&amp;rdquo;
+#define DARY_GRAY &amp;ldquo;/033[1;30m&amp;rdquo;
+#define CYAN &amp;ldquo;/033[0;36m&amp;rdquo;
+#define LIGHT_CYAN &amp;ldquo;/033[1;36m&amp;rdquo;
+#define PURPLE &amp;ldquo;/033[0;35m&amp;rdquo;
+#define LIGHT_PURPLE &amp;ldquo;/033[1;35m&amp;rdquo;
+#define BROWN &amp;ldquo;/033[0;33m&amp;rdquo;
+#define YELLOW &amp;ldquo;/033[1;33m&amp;rdquo;
+#define LIGHT_GRAY &amp;ldquo;/033[0;37m&amp;rdquo;
+#define WHITE &amp;ldquo;/033[1;37m&amp;rdquo;
+比如：
+printf(&amp;quot;/033[31m ####&amp;mdash;&amp;ndash;&amp;gt;&amp;gt; /033[32m&amp;quot; &amp;ldquo;hello/n&amp;rdquo; &amp;ldquo;/033[m&amp;rdquo;)
+int main()
+{
+printf( CYAN &amp;ldquo;current function is %s &amp;quot; GREEN &amp;quot; file line is %d/n&amp;rdquo; NONE,'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/printf/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="printf">
+<meta name="twitter:description" content="printf输出颜色和ANSI控制码(高亮,下划线,闪烁,光标位置,清屏等)
+颜色：
+#define NONE &amp;ldquo;/033[m&amp;rdquo;
+#define RED &amp;ldquo;/033[0;32;31m&amp;rdquo;
+#define LIGHT_RED &amp;ldquo;/033[1;31m&amp;rdquo;
+#define GREEN &amp;ldquo;/033[0;32;32m&amp;rdquo;
+#define LIGHT_GREEN &amp;ldquo;/033[1;32m&amp;rdquo;
+#define BLUE &amp;ldquo;/033[0;32;34m&amp;rdquo;
+#define LIGHT_BLUE &amp;ldquo;/033[1;34m&amp;rdquo;
+#define DARY_GRAY &amp;ldquo;/033[1;30m&amp;rdquo;
+#define CYAN &amp;ldquo;/033[0;36m&amp;rdquo;
+#define LIGHT_CYAN &amp;ldquo;/033[1;36m&amp;rdquo;
+#define PURPLE &amp;ldquo;/033[0;35m&amp;rdquo;
+#define LIGHT_PURPLE &amp;ldquo;/033[1;35m&amp;rdquo;
+#define BROWN &amp;ldquo;/033[0;33m&amp;rdquo;
+#define YELLOW &amp;ldquo;/033[1;33m&amp;rdquo;
+#define LIGHT_GRAY &amp;ldquo;/033[0;37m&amp;rdquo;
+#define WHITE &amp;ldquo;/033[1;37m&amp;rdquo;
+比如：
+printf(&amp;quot;/033[31m ####&amp;mdash;&amp;ndash;&amp;gt;&amp;gt; /033[32m&amp;quot; &amp;ldquo;hello/n&amp;rdquo; &amp;ldquo;/033[m&amp;rdquo;)
+int main()
+{
+printf( CYAN &amp;ldquo;current function is %s &amp;quot; GREEN &amp;quot; file line is %d/n&amp;rdquo; NONE,">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/printf/">printf</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>printf输出颜色和ANSI控制码(高亮,下划线,闪烁,光标位置,清屏等)</p>
+<p>颜色：</p>
+<p>#define NONE &ldquo;/033[m&rdquo;</p>
+<p>#define RED &ldquo;/033[0;32;31m&rdquo;</p>
+<p>#define LIGHT_RED &ldquo;/033[1;31m&rdquo;</p>
+<p>#define GREEN &ldquo;/033[0;32;32m&rdquo;</p>
+<p>#define LIGHT_GREEN &ldquo;/033[1;32m&rdquo;</p>
+<p>#define BLUE &ldquo;/033[0;32;34m&rdquo;</p>
+<p>#define LIGHT_BLUE &ldquo;/033[1;34m&rdquo;</p>
+<p>#define DARY_GRAY &ldquo;/033[1;30m&rdquo;</p>
+<p>#define CYAN &ldquo;/033[0;36m&rdquo;</p>
+<p>#define LIGHT_CYAN &ldquo;/033[1;36m&rdquo;</p>
+<p>#define PURPLE &ldquo;/033[0;35m&rdquo;</p>
+<p>#define LIGHT_PURPLE &ldquo;/033[1;35m&rdquo;</p>
+<p>#define BROWN &ldquo;/033[0;33m&rdquo;</p>
+<p>#define YELLOW &ldquo;/033[1;33m&rdquo;</p>
+<p>#define LIGHT_GRAY &ldquo;/033[0;37m&rdquo;</p>
+<p>#define WHITE &ldquo;/033[1;37m&rdquo;</p>
+<p>比如：</p>
+<p>printf(&quot;/033[31m ####&mdash;&ndash;&gt;&gt; /033[32m&quot; &ldquo;hello/n&rdquo; &ldquo;/033[m&rdquo;)</p>
+<p>int main()</p>
+<p>{</p>
+<p>printf( CYAN &ldquo;current function is %s &quot; GREEN &quot; file line is %d/n&rdquo; NONE,</p>
+<p><strong>FUNCTION</strong>, <strong>LINE</strong> );</p>
+<p>fprintf(stderr, RED &ldquo;current function is %s &quot; BLUE &quot; file line is %d/n&rdquo; NONE,</p>
+<p><strong>FUNCTION</strong>, <strong>LINE</strong> );</p>
+<p>return 0;</p>
+<p>}</p>
+<p>颜色分为背景色和字体色，30~39用来设置字体色，40~49设置背景：</p>
+<p>背景色 字体色</p>
+<p>40: 黑 30: 黑</p>
+<p>41: 红 31: 红</p>
+<p>42: 绿 32: 绿</p>
+<p>43: 黄 33: 黄</p>
+<p>44: 蓝 34: 蓝</p>
+<p>45: 紫 35: 紫</p>
+<p>46: 深绿 36: 深绿</p>
+<p>47: 白色 37: 白色</p>
+<p>记得在打印完之后，把颜色恢复成NONE，不然再后面的打印都会跟着变色。</p>
+<p>另外，还可以加一些ANSI控制码。加颜色只是以下控制码中的一种：</p>
+<p>/033[0m 关闭所有属性</p>
+<p>/033[1m 设置高亮度</p>
+<p>/033[4m 下划线</p>
+<p>/033[5m 闪烁</p>
+<p>/033[7m 反显</p>
+<p>/033[8m 消隐</p>
+<p>/033[30m &ndash; /033[37m 设置前景色</p>
+<p>/033[40m &ndash; /033[47m 设置背景色</p>
+<p>/033[nA 光标上移n行</p>
+<p>/033[nB 光标下移n行</p>
+<p>/033[nC 光标右移n行</p>
+<p>/033[nD 光标左移n行</p>
+<p>/033[y;xH设置光标位置</p>
+<p>/033[2J 清屏</p>
+<p>/033[K 清除从光标到行尾的内容</p>
+<p>/033[s 保存光标位置</p>
+<p>/033[u 恢复光标位置</p>
+<p>/033[?25l 隐藏光标</p>
+<p>/033[?25h 显示光标</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

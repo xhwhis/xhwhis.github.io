@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='vim中的查找与替换 1.查找 在normal模式下按下/即可进入查找模式，输入要查找的字符串并按下回车。 Vim会跳转到第一个匹配。按下n查找下一个，按下N查找上一个。
+Vim查找支持正则表达式，例如/vim$匹配行尾的&amp;quot;vim&amp;quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&amp;quot;vim$&amp;quot;。
+2.大小写敏感查找 在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。例如：
+/foo\c 将会查找所有的&amp;quot;foo&amp;quot;,&amp;quot;FOO&amp;quot;,&amp;quot;Foo&amp;quot;等字符串。
+3.大小写敏感配置 Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：
+&amp;#34; 设置默认进行大小写不敏感查找 set ignorecase &amp;#34; 如果有一个大写字母，则切换到大小写敏感查找 set smartcase  将上述设置粘贴到你的~/.vimrc，重新打开Vim即可生效
+ 4.查找当前单词 在normal模式下按下*即可查找光标所在单词（word）， 要求每次出现的前后为空白字符或标点符号。例如当前为foo， 可以匹配foo bar中的foo，但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
+按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。
+5.查找与替换 :s（substitute）命令用来查找和替换字符串。语法如下：
+:{作用范围}s/{目标}/{替换}/{替换标志} 例如:%s/foo/bar/g会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）
+6.作用范围 作用范围分为当前行、全文、选区等等。
+当前行：
+:s/foo/bar/g 全文：
+:%s/foo/bar/g 选区，在Visual模式下选择区域后输入:，Vim即可自动补全为 :&#39;&amp;lt;,&#39;&amp;gt;。
+:&amp;#39;&amp;lt;,&amp;#39;&amp;gt;s/foo/bar/g 2-11行：
+:5,12s/foo/bar/g 当前行.与接下来两行&#43;2：
+:.,&#43;2s/foo/bar/g 替换标志 上文中命令结尾的g即是替换标志之一，表示全局global替换（即替换目标的所有出现）。 还有很多其他有用的替换标志：
+空替换标志表示只替换从光标位置开始，目标的第一次出现：
+:%s/foo/bar i表示大小写不敏感查找，I表示大小写敏感：
+:%s/foo/bar/i # 等效于模式中的\c（不敏感）或\C（敏感） :%s/foo\c/bar c表示需要确认，例如全局查找&amp;quot;foo&amp;quot;替换为&amp;quot;bar&amp;quot;并且需要确认：
+:%s/foo/bar/gc 回车后Vim会将光标移动到每一次&amp;quot;foo&amp;quot;出现的位置，并提示
+replace with bar (y/n/a/q/l/^E/^Y)? 按下y表示替换，n表示不替换，a表示替换所有，q表示退出查找模式， l表示替换当前位置并退出。^E与^Y是光标移动快捷键，参考： Vim中如何快速进行光标移'><title>vim查找&amp;替换</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/vim%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='vim查找&amp;替换'>
+<meta property='og:description' content='vim中的查找与替换 1.查找 在normal模式下按下/即可进入查找模式，输入要查找的字符串并按下回车。 Vim会跳转到第一个匹配。按下n查找下一个，按下N查找上一个。
+Vim查找支持正则表达式，例如/vim$匹配行尾的&amp;quot;vim&amp;quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&amp;quot;vim$&amp;quot;。
+2.大小写敏感查找 在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。例如：
+/foo\c 将会查找所有的&amp;quot;foo&amp;quot;,&amp;quot;FOO&amp;quot;,&amp;quot;Foo&amp;quot;等字符串。
+3.大小写敏感配置 Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：
+&amp;#34; 设置默认进行大小写不敏感查找 set ignorecase &amp;#34; 如果有一个大写字母，则切换到大小写敏感查找 set smartcase  将上述设置粘贴到你的~/.vimrc，重新打开Vim即可生效
+ 4.查找当前单词 在normal模式下按下*即可查找光标所在单词（word）， 要求每次出现的前后为空白字符或标点符号。例如当前为foo， 可以匹配foo bar中的foo，但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
+按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。
+5.查找与替换 :s（substitute）命令用来查找和替换字符串。语法如下：
+:{作用范围}s/{目标}/{替换}/{替换标志} 例如:%s/foo/bar/g会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）
+6.作用范围 作用范围分为当前行、全文、选区等等。
+当前行：
+:s/foo/bar/g 全文：
+:%s/foo/bar/g 选区，在Visual模式下选择区域后输入:，Vim即可自动补全为 :&#39;&amp;lt;,&#39;&amp;gt;。
+:&amp;#39;&amp;lt;,&amp;#39;&amp;gt;s/foo/bar/g 2-11行：
+:5,12s/foo/bar/g 当前行.与接下来两行&#43;2：
+:.,&#43;2s/foo/bar/g 替换标志 上文中命令结尾的g即是替换标志之一，表示全局global替换（即替换目标的所有出现）。 还有很多其他有用的替换标志：
+空替换标志表示只替换从光标位置开始，目标的第一次出现：
+:%s/foo/bar i表示大小写不敏感查找，I表示大小写敏感：
+:%s/foo/bar/i # 等效于模式中的\c（不敏感）或\C（敏感） :%s/foo\c/bar c表示需要确认，例如全局查找&amp;quot;foo&amp;quot;替换为&amp;quot;bar&amp;quot;并且需要确认：
+:%s/foo/bar/gc 回车后Vim会将光标移动到每一次&amp;quot;foo&amp;quot;出现的位置，并提示
+replace with bar (y/n/a/q/l/^E/^Y)? 按下y表示替换，n表示不替换，a表示替换所有，q表示退出查找模式， l表示替换当前位置并退出。^E与^Y是光标移动快捷键，参考： Vim中如何快速进行光标移'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/vim%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="vim查找&amp;替换">
+<meta name="twitter:description" content="vim中的查找与替换 1.查找 在normal模式下按下/即可进入查找模式，输入要查找的字符串并按下回车。 Vim会跳转到第一个匹配。按下n查找下一个，按下N查找上一个。
+Vim查找支持正则表达式，例如/vim$匹配行尾的&amp;quot;vim&amp;quot;。 需要查找特殊字符需要转义，例如/vim\$匹配&amp;quot;vim$&amp;quot;。
+2.大小写敏感查找 在查找模式中加入\c表示大小写不敏感查找，\C表示大小写敏感查找。例如：
+/foo\c 将会查找所有的&amp;quot;foo&amp;quot;,&amp;quot;FOO&amp;quot;,&amp;quot;Foo&amp;quot;等字符串。
+3.大小写敏感配置 Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：
+&amp;#34; 设置默认进行大小写不敏感查找 set ignorecase &amp;#34; 如果有一个大写字母，则切换到大小写敏感查找 set smartcase  将上述设置粘贴到你的~/.vimrc，重新打开Vim即可生效
+ 4.查找当前单词 在normal模式下按下*即可查找光标所在单词（word）， 要求每次出现的前后为空白字符或标点符号。例如当前为foo， 可以匹配foo bar中的foo，但不可匹配foobar中的foo。 这在查找函数名、变量名时非常有用。
+按下g*即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即foo bar和foobar中的foo均可被匹配到。
+5.查找与替换 :s（substitute）命令用来查找和替换字符串。语法如下：
+:{作用范围}s/{目标}/{替换}/{替换标志} 例如:%s/foo/bar/g会在全局范围(%)查找foo并替换为bar，所有出现都会被替换（g）
+6.作用范围 作用范围分为当前行、全文、选区等等。
+当前行：
+:s/foo/bar/g 全文：
+:%s/foo/bar/g 选区，在Visual模式下选择区域后输入:，Vim即可自动补全为 :&#39;&amp;lt;,&#39;&amp;gt;。
+:&amp;#39;&amp;lt;,&amp;#39;&amp;gt;s/foo/bar/g 2-11行：
+:5,12s/foo/bar/g 当前行.与接下来两行&#43;2：
+:.,&#43;2s/foo/bar/g 替换标志 上文中命令结尾的g即是替换标志之一，表示全局global替换（即替换目标的所有出现）。 还有很多其他有用的替换标志：
+空替换标志表示只替换从光标位置开始，目标的第一次出现：
+:%s/foo/bar i表示大小写不敏感查找，I表示大小写敏感：
+:%s/foo/bar/i # 等效于模式中的\c（不敏感）或\C（敏感） :%s/foo\c/bar c表示需要确认，例如全局查找&amp;quot;foo&amp;quot;替换为&amp;quot;bar&amp;quot;并且需要确认：
+:%s/foo/bar/gc 回车后Vim会将光标移动到每一次&amp;quot;foo&amp;quot;出现的位置，并提示
+replace with bar (y/n/a/q/l/^E/^Y)? 按下y表示替换，n表示不替换，a表示替换所有，q表示退出查找模式， l表示替换当前位置并退出。^E与^Y是光标移动快捷键，参考： Vim中如何快速进行光标移">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/vim%E6%9F%A5%E6%89%BE-%E6%9B%BF%E6%8D%A2/">vim查找&amp;替换</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="vim中的查找与替换">vim中的查找与替换</h1>
+<h5 id="1查找"><strong>1.查找</strong></h5>
+<p>在normal模式下按下<code>/</code>即可进入查找模式，输入要查找的字符串并按下回车。 Vim会跳转到第一个匹配。按下<code>n</code>查找下一个，按下<code>N</code>查找上一个。</p>
+<p>Vim查找支持正则表达式，例如<code>/vim$</code>匹配行尾的<code>&quot;vim&quot;</code>。 需要查找特殊字符需要转义，例如<code>/vim\$</code>匹配<code>&quot;vim$&quot;</code>。</p>
+<h5 id="2大小写敏感查找"><strong>2.大小写敏感查找</strong></h5>
+<p>在查找模式中加入<code>\c</code>表示大小写不敏感查找，<code>\C</code>表示大小写敏感查找。例如：</p>
+<pre tabindex="0"><code>/foo\c
+</code></pre><p>将会查找所有的<code>&quot;foo&quot;</code>,<code>&quot;FOO&quot;</code>,<code>&quot;Foo&quot;</code>等字符串。</p>
+<h5 id="3大小写敏感配置"><strong>3.大小写敏感配置</strong></h5>
+<p>Vim 默认采用大小写敏感的查找，为了方便我们常常将其配置为大小写不敏感：</p>
+<pre tabindex="0"><code>&#34; 设置默认进行大小写不敏感查找
+set ignorecase
+&#34; 如果有一个大写字母，则切换到大小写敏感查找
+set smartcase 
+</code></pre><blockquote>
+<p>将上述设置粘贴到你的<code>~/.vimrc</code>，重新打开Vim即可生效</p>
+</blockquote>
+<h5 id="4查找当前单词"><strong>4.查找当前单词</strong></h5>
+<p>在normal模式下按下<code>*</code>即可查找光标所在单词（word）， 要求每次出现的前后为空白字符或标点符号。例如当前为<code>foo</code>， 可以匹配<code>foo bar</code>中的<code>foo</code>，但不可匹配<code>foobar</code>中的<code>foo</code>。 这在查找函数名、变量名时非常有用。</p>
+<p>按下<code>g*</code>即可查找光标所在单词的字符序列，每次出现前后字符无要求。 即<code>foo bar</code>和<code>foobar</code>中的<code>foo</code>均可被匹配到。</p>
+<h5 id="5查找与替换"><strong>5.查找与替换</strong></h5>
+<p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：</p>
+<pre tabindex="0"><code>:{作用范围}s/{目标}/{替换}/{替换标志}
+</code></pre><p>例如<code>:%s/foo/bar/g</code>会在全局范围(<code>%</code>)查找<code>foo</code>并替换为<code>bar</code>，所有出现都会被替换（<code>g</code>）</p>
+<h5 id="6作用范围"><strong>6.作用范围</strong></h5>
+<p>作用范围分为当前行、全文、选区等等。</p>
+<p>当前行：</p>
+<pre tabindex="0"><code>:s/foo/bar/g
+</code></pre><p>全文：</p>
+<pre tabindex="0"><code>:%s/foo/bar/g
+</code></pre><p>选区，在Visual模式下选择区域后输入<code>:</code>，Vim即可自动补全为 <code>:'&lt;,'&gt;</code>。</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/foo/bar/g
+</code></pre><p>2-11行：</p>
+<pre tabindex="0"><code>:5,12s/foo/bar/g
+</code></pre><p>当前行<code>.</code>与接下来两行<code>+2</code>：</p>
+<pre tabindex="0"><code>:.,+2s/foo/bar/g
+</code></pre><h2 id="替换标志">替换标志</h2>
+<p>上文中命令结尾的<code>g</code>即是替换标志之一，表示全局<code>global</code>替换（即替换目标的所有出现）。 还有很多其他有用的替换标志：</p>
+<p>空替换标志表示只替换从光标位置开始，目标的第一次出现：</p>
+<pre tabindex="0"><code>:%s/foo/bar
+</code></pre><p><code>i</code>表示大小写不敏感查找，<code>I</code>表示大小写敏感：</p>
+<pre tabindex="0"><code>:%s/foo/bar/i
+# 等效于模式中的\c（不敏感）或\C（敏感）
+:%s/foo\c/bar
+</code></pre><p><code>c</code>表示需要确认，例如全局查找<code>&quot;foo&quot;</code>替换为<code>&quot;bar&quot;</code>并且需要确认：</p>
+<pre tabindex="0"><code>:%s/foo/bar/gc
+</code></pre><p>回车后Vim会将光标移动到每一次<code>&quot;foo&quot;</code>出现的位置，并提示</p>
+<pre tabindex="0"><code>replace with bar (y/n/a/q/l/^E/^Y)?
+</code></pre><p>按下<code>y</code>表示替换，<code>n</code>表示不替换，<code>a</code>表示替换所有，<code>q</code>表示退出查找模式， <code>l</code>表示替换当前位置并退出。<code>^E</code>与<code>^Y</code>是光标移动快捷键，参考： <a class="link" href="http://harttle.com/2015/11/07/vim-cursor.html"  target="_blank" rel="noopener"
+    >Vim中如何快速进行光标移</a></p>
+<h2 id="大小写敏感查找">大小写敏感查找</h2>
+<p>在查找模式中加入<code>\c</code>表示大小写不敏感查找，<code>\C</code>表示大小写敏感查找。例如：</p>
+<pre tabindex="0"><code>/foo\c
+</code></pre><p>将会查找所有的<code>&quot;foo&quot;</code>,<code>&quot;FOO&quot;</code>,<code>&quot;Foo&quot;</code>等字符串。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

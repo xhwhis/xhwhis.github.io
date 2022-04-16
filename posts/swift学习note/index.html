@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Swift学习note Swift引入 使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和API，可以在 Swift 程序中使用它们。
+Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C&#43;&#43; 代码。
+分号 Swift不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：
+import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
+标识符 如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：
+let `class` = &amp;#34;Runoob&amp;#34; 比php中的标识符前加@的处理更高级
+Swift空格 Swift语言并不是像C/C&#43;&#43;，Java那样完全忽视空格，Swift对空格的使用有一定的要求，但是又不像Python对缩进的要求那么严格。
+在Swift中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：
+let a=1 &#43; 2 错误信息是：
+error: prefix/postfix &amp;#39;=&amp;#39; is reserved 意思大概是等号直接跟在前面或后面这种用法是保留的。
+下面的代码还是会报错：
+let a = 1&#43; 2 错误信息是：'><title>swift学习note</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/swift%E5%AD%A6%E4%B9%A0note/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='swift学习note'>
+<meta property='og:description' content='Swift学习note Swift引入 使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和API，可以在 Swift 程序中使用它们。
+Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C&#43;&#43; 代码。
+分号 Swift不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：
+import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
+标识符 如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：
+let `class` = &amp;#34;Runoob&amp;#34; 比php中的标识符前加@的处理更高级
+Swift空格 Swift语言并不是像C/C&#43;&#43;，Java那样完全忽视空格，Swift对空格的使用有一定的要求，但是又不像Python对缩进的要求那么严格。
+在Swift中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：
+let a=1 &#43; 2 错误信息是：
+error: prefix/postfix &amp;#39;=&amp;#39; is reserved 意思大概是等号直接跟在前面或后面这种用法是保留的。
+下面的代码还是会报错：
+let a = 1&#43; 2 错误信息是：'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/swift%E5%AD%A6%E4%B9%A0note/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="swift学习note">
+<meta name="twitter:description" content="Swift学习note Swift引入 使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和API，可以在 Swift 程序中使用它们。
+Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C&#43;&#43; 代码。
+分号 Swift不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：
+import Cocoa var str = &amp;#34;Hello World&amp;#34;; print (str) 词法分析或语法分析时应该直接忽略了分号(;)
+标识符 如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：
+let `class` = &amp;#34;Runoob&amp;#34; 比php中的标识符前加@的处理更高级
+Swift空格 Swift语言并不是像C/C&#43;&#43;，Java那样完全忽视空格，Swift对空格的使用有一定的要求，但是又不像Python对缩进的要求那么严格。
+在Swift中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：
+let a=1 &#43; 2 错误信息是：
+error: prefix/postfix &amp;#39;=&amp;#39; is reserved 意思大概是等号直接跟在前面或后面这种用法是保留的。
+下面的代码还是会报错：
+let a = 1&#43; 2 错误信息是：">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/swift%E5%AD%A6%E4%B9%A0note/">swift学习note</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="swift学习note">Swift学习note</h2>
+<h3 id="swift引入">Swift引入</h3>
+<p>使用 import 语句来引入任何的 Objective-C 框架（或 C 库）到 Swift 程序中。例如 import cocoa 语句导入了使用了 Cocoa 库和API，可以在 Swift 程序中使用它们。</p>
+<p>Cocoa 本身由 Objective-C 语言写成，Objective-C 又是 C 语言的严格超集，所以在 Swift 应用中可以很简单的混入 C 语言代码，甚至是 C++ 代码。</p>
+<h3 id="分号">分号</h3>
+<p>Swift不要求在每行语句的结尾使用分号(;)，但在同一行书写多条语句时，必须用分号隔开：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> str = <span style="color:#e6db74">&#34;Hello World&#34;</span>; print (str)
+</span></span></code></pre></div><p>词法分析或语法分析时应该直接忽略了分号(;)</p>
+<h3 id="标识符">标识符</h3>
+<p>如果一定要使用关键字作为标识符，可以在关键字前后添加重音符号（`），例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> `<span style="color:#66d9ef">class</span>` = <span style="color:#e6db74">&#34;Runoob&#34;</span>
+</span></span></code></pre></div><p>比php中的标识符前加@的处理更高级</p>
+<h3 id="swift空格">Swift空格</h3>
+<p>Swift语言并不是像C/C++，Java那样完全忽视空格，Swift对空格的使用有一定的要求，但是又不像Python对缩进的要求那么严格。</p>
+<p>在Swift中，运算符不能直接跟在变量或常量的后面。例如下面的代码会报错：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> a=<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>错误信息是：</p>
+<pre tabindex="0"><code>error: prefix/postfix &#39;=&#39; is reserved
+</code></pre><p>意思大概是等号直接跟在前面或后面这种用法是保留的。</p>
+<p>下面的代码还是会报错：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> a = <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>错误信息是：</p>
+<pre tabindex="0"><code>error: consecutive statements on a line must be separated by &#39;;&#39;
+</code></pre><p>这是因为Swift认为到1+这个语句就结束了，2就是下一个语句了。</p>
+<p>只有这样写才不会报错：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> a = <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> b = <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>好蠢的设计，为什么不直接忽略空格！？不会用空格来分词吧！那也太不apple了</p>
+<h3 id="swift数据类型">Swift数据类型</h3>
+<p>Int、UInt、Float、Double、Bool、String、Character（类似cpp）</p>
+<h4 id="类型别名">类型别名</h4>
+<p>类型别名对当前的类型定义了另一个名字，类型别名通过使用typealias关键字来定义。语法格式如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">typealias</span> newname = type
+</span></span></code></pre></div><p>类似c中的typedef</p>
+<h4 id="类型安全">类型安全</h4>
+<p>Swift 是一个类型安全（type safe）的语言。</p>
+<p>由于 Swift 是类型安全的，所以它会在编译代码时进行类型检查（type checks），并把不匹配的类型标记为错误。这可以让开发的时候尽早发现并修复错误。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> a = <span style="color:#ae81ff">42</span>
+</span></span><span style="display:flex;"><span>a = <span style="color:#e6db74">&#34;hi&#34;</span>
+</span></span><span style="display:flex;"><span>print(a)
+</span></span></code></pre></div><p>以上程序，会在Xcode中报错：</p>
+<pre tabindex="0"><code>error: cannot assign value of type &#39;String&#39; to type &#39;Int&#39;
+varA = &#34;This is hello&#34;
+</code></pre><p>意思为不能将 &lsquo;String&rsquo; 字符串赋值给 &lsquo;Int&rsquo; 变量</p>
+<h4 id="常量声明">常量声明</h4>
+<p>常量使用关键字let来声明，语法如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> constantName = &lt;initial value&gt;
+</span></span></code></pre></div><h4 id="类型标注">类型标注</h4>
+<p>当声明常量或者变量的时候可以加上类型标注（type annotation），说明常量或者变量中要存储的值的类型。如果要添加类型标注，需要在常量或者变量名后面加上一个冒号和空格，然后加上类型名称。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> constantName:&lt;data type&gt; = &lt;<span style="color:#66d9ef">optional</span> initial value&gt;
+</span></span></code></pre></div><h3 id="区间运算符">区间运算符</h3>
+<p>Swift 提供了两个区间的运算符</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>闭区间运算符</td>
+<td>闭区间运算符（a&hellip;b）定义一个包含从a到b(包括a和b)的所有值的区间，b必须大于等于a。 ‌ 闭区间运算符在迭代一个区间的所有值时是非常有用的，如在for-in循环中</td>
+<td>1&hellip;5 区间值为 1, 2, 3, 4 和 5</td>
+</tr>
+<tr>
+<td>半开区间运算符</td>
+<td>半开区间（a..&lt;b）定义一个从a到b但不包括b的区间。 之所以称为半开区间，是因为该区间包含第一个值而不包括最后的值</td>
+<td>1..&lt; 5 区间值为 1, 2, 3, 和 4</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="字符串函数及运算符">字符串函数及运算符</h3>
+<p>Swift 支持以下几种字符串函数及运算符：</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">函数/运算符 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>isEmpty</strong> 判断字符串是否为空，返回布尔值</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>hasPrefix(prefix: String)</strong> 检查字符串是否拥有特定前缀</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>hasSuffix(suffix: String)</strong> 检查字符串是否拥有特定后缀。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>Int(String)</strong> 转换字符串数字为整型。 实例: <code>let myString: String = &quot;256&quot; let myInt: Int? = Int(myString)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>String.count</strong> Swift 3 版本使用的是 String.characters.count计算字符串的长度</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>utf8</strong> 可以通过遍历 String 的 utf8 属性来访问它的 UTF-8 编码</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>utf16</strong> 可以通过遍历 String 的 utf8 属性来访问它的 utf16 编码</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>unicodeScalars</strong> 可以通过遍历String值的unicodeScalars属性来访问它的 Unicode 标量编码.</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><strong>+</strong> 连接两个字符串，并返回一个新的字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><strong>+=</strong> 连接操作符两边的字符串并将新字符串赋值给左边的操作符变量</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><strong>==</strong> 判断两个字符串是否相等</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><strong>&lt;</strong> 比较两个字符串，对两个字符串的字母逐一比较</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><strong>!=</strong> 比较两个字符串是否不相等</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="swift数组">Swift数组</h3>
+<h4 id="创建数组">创建数组</h4>
+<p>可以使用构造语法来创建一个由特定数据类型构成的空数组：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someArray = [SomeType]()
+</span></span></code></pre></div><p>以下是创建一个初始化大小数组的语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someArray = [SomeType](repeating: InitialValue, count: NumbeOfElements)
+</span></span></code></pre></div><p>以下实例创建了一个类型为 Int ，数量为 3，初始值为 0 的空数组：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someInts = [Int](repeating: <span style="color:#ae81ff">0</span>, count: <span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>以下实例创建了含有三个元素的数组：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someInts:[Int] = [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>]
+</span></span></code></pre></div><h3 id="swift字典">Swift字典</h3>
+<h4 id="创建字典">创建字典</h4>
+<p>可以使用以下语法来创建一个特定类型的空字典：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict =  [KeyType: ValueType]()
+</span></span></code></pre></div><p>以下是创建一个空字典，键的类型为 Int，值的类型为 String 的简单语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict = [Int: String]()
+</span></span></code></pre></div><p>以下为创建一个字典的实例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict:[Int:String] = [<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#34;One&#34;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#34;Two&#34;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#34;Three&#34;</span>]
+</span></span></code></pre></div><h4 id="修改字典">修改字典</h4>
+<p>可以使用 updateValue(forKey:) 增加或更新字典的内容。如果 key 不存在，则添加值，如果存在则修改 key 对应的值。updateValue(_:forKey:)方法返回Optional值。实例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict:[Int:String] = [<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#34;One&#34;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#34;Two&#34;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#34;Three&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> oldVal = someDict.updateValue(<span style="color:#e6db74">&#34;One 新的值&#34;</span>, forKey: <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someVar = someDict[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 1 旧的值 </span><span style="color:#e6db74">\(</span>oldVal<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 1 的值为 </span><span style="color:#e6db74">\(</span>someVar<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 2 的值为 </span><span style="color:#e6db74">\(</span>someDict[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 3 的值为 </span><span style="color:#e6db74">\(</span>someDict[<span style="color:#ae81ff">3</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span></code></pre></div><h4 id="移除key-value对">移除Key-Value对</h4>
+<p>可以使用 removeValueForKey() 方法来移除字典 key-value 对。如果 key 存在该方法返回移除的值，如果不存在返回 nil 。实例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict:[Int:String] = [<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#34;One&#34;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#34;Two&#34;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#34;Three&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> removedValue = someDict.removeValue(forKey: <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 1 的值为 </span><span style="color:#e6db74">\(</span>someDict[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 2 的值为 </span><span style="color:#e6db74">\(</span>someDict[<span style="color:#ae81ff">2</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span><span style="display:flex;"><span>print( <span style="color:#e6db74">&#34;key = 3 的值为 </span><span style="color:#e6db74">\(</span>someDict[<span style="color:#ae81ff">3</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> )
+</span></span></code></pre></div><h4 id="字典转换为数组">字典转换为数组</h4>
+<p>提取字典的键值(key-value)对，并转换为独立的数组。实例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someDict:[Int:String] = [<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#34;One&#34;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#34;Two&#34;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#34;Three&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> dictKeys = [Int](someDict.keys)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> dictValues = [String](someDict.values)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;输出字典的键(key)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (key) <span style="color:#66d9ef">in</span> dictKeys {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>key<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;输出字典的值(value)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (value) <span style="color:#66d9ef">in</span> dictValues {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>value<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="swift函数">Swift函数</h3>
+<h4 id="元组作为函数返回值">元组作为函数返回值</h4>
+<p>元组与数组类似，不同的是，元组中的元素可以是任意类型，使用的是圆括号。</p>
+<p>可以用元组（tuple）类型让多个值作为一个复合值从函数中返回。</p>
+<p>下面的这个例子中，定义了一个名为minMax(_:)的函数，作用是在一个Int数组中找出最小值与最大值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">minMax</span>(array: [Int]) -&gt; (min: Int, max: Int) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> currentMin = array[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> currentMax = array[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> value <span style="color:#66d9ef">in</span> array[<span style="color:#ae81ff">1.</span>.&lt;array.count] {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&lt;</span> currentMin {
+</span></span><span style="display:flex;"><span>            currentMin = value
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&gt;</span> currentMax {
+</span></span><span style="display:flex;"><span>            currentMax = value
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (currentMin, currentMax)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> bounds = minMax(array: [<span style="color:#ae81ff">8</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">109</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">71</span>])
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;最小值为 </span><span style="color:#e6db74">\(</span>bounds.min<span style="color:#e6db74">)</span><span style="color:#e6db74"> ，最大值为 </span><span style="color:#e6db74">\(</span>bounds.max<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h4 id="外部参数名">外部参数名</h4>
+<p>可以在局部参数名前指定外部参数名，中间以空格分隔，外部参数名用于在函数调用时传递给函数的参数。</p>
+<p>可以定义以下两个函数参数名并调用它：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pow</span>(firstArg a: Int, secondArg b: Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">var</span> res = a
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>.&lt;b {
+</span></span><span style="display:flex;"><span>      res = res <span style="color:#f92672">*</span> a
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   print(res)
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>pow(firstArg:<span style="color:#ae81ff">2</span>, secondArg:<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><h4 id="可变参数">可变参数</h4>
+<p>可变参数可以接受零个或多个值。函数调用时，可以用可变参数来指定函数参数，其数量是不确定的。</p>
+<p>可变参数通过在变量类型名后面加入（&hellip;）的方式来定义</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">vari</span>&lt;N&gt;(members: N...){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> members {
+</span></span><span style="display:flex;"><span>        print(i)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>vari(members: <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><h4 id="引用参数">引用参数</h4>
+<p>一般默认在函数中定义的参数都是常量参数，也就是这个参数你只可以查询使用，不能改变它的值。</p>
+<p>如果想要声明一个变量参数，可以在参数定义前加 inout 关键字，这样就可以改变这个参数的值了。</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span>  <span style="color:#a6e22e">getName</span>(<span style="color:#66d9ef">_</span> name: <span style="color:#66d9ef">inout</span> String)
+</span></span></code></pre></div><p>此时这个 name 值可以在函数中改变。</p>
+<p>一般默认的参数传递都是传值调用的，而不是传引用。所以传入的参数在函数内改变，并不影响原来的那个参数。传入的只是这个参数的副本。</p>
+<p>当传入的参数作为输入输出参数时，需要在参数名前加 &amp; 符，表示这个值可以被函数修改</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

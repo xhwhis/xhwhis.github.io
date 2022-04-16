@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Mac本地化安装配置Flarum 系统: macOS Monterey &#43; Apple M1
+前提: homebrewCN
+MariaDB配置 brew install mariadb brew services restart mariadb 初始化MariaDB sudo下配置
+mysql_secure_installation Composer brew install composer ps. 安装composer会连同依赖php一同安装，但flarum没适配最新的php
+php@8.0 brew install php@8.0 brew services restart php@8.0 同环境下还有一个php，指定一下PHP8.0
+echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy brew install caddy URL重写——配置Caddy 在/opt/homebrew/etc/Caddyfile中添加配置，如果没有该文件，则新建
+127.0.0.1:9090 { root * /var/www/flarum/public php_fastcgi 127.0.0.1:9000 header /assets { &#43;Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34; &#43;Cache-Control &amp;#34;max-age=25000&amp;#34; Pragma &amp;#34;public&amp;#34; } file_server } 其中本地端口可改为其他，root指向flarum的public路径，php配置如未修改过，则fastcgi指向URL 127.'><title>Flarum mac本地化安装配置Guide</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/flarum-installation/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='Flarum mac本地化安装配置Guide'>
+<meta property='og:description' content='Mac本地化安装配置Flarum 系统: macOS Monterey &#43; Apple M1
+前提: homebrewCN
+MariaDB配置 brew install mariadb brew services restart mariadb 初始化MariaDB sudo下配置
+mysql_secure_installation Composer brew install composer ps. 安装composer会连同依赖php一同安装，但flarum没适配最新的php
+php@8.0 brew install php@8.0 brew services restart php@8.0 同环境下还有一个php，指定一下PHP8.0
+echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy brew install caddy URL重写——配置Caddy 在/opt/homebrew/etc/Caddyfile中添加配置，如果没有该文件，则新建
+127.0.0.1:9090 { root * /var/www/flarum/public php_fastcgi 127.0.0.1:9000 header /assets { &#43;Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34; &#43;Cache-Control &amp;#34;max-age=25000&amp;#34; Pragma &amp;#34;public&amp;#34; } file_server } 其中本地端口可改为其他，root指向flarum的public路径，php配置如未修改过，则fastcgi指向URL 127.'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/flarum-installation/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-28T15:58:59&#43;08:00'/><meta property='article:modified_time' content='2022-03-28T15:58:59&#43;08:00'/>
+<meta name="twitter:title" content="Flarum mac本地化安装配置Guide">
+<meta name="twitter:description" content="Mac本地化安装配置Flarum 系统: macOS Monterey &#43; Apple M1
+前提: homebrewCN
+MariaDB配置 brew install mariadb brew services restart mariadb 初始化MariaDB sudo下配置
+mysql_secure_installation Composer brew install composer ps. 安装composer会连同依赖php一同安装，但flarum没适配最新的php
+php@8.0 brew install php@8.0 brew services restart php@8.0 同环境下还有一个php，指定一下PHP8.0
+echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc echo &amp;#39;export PATH=&amp;#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Caddy brew install caddy URL重写——配置Caddy 在/opt/homebrew/etc/Caddyfile中添加配置，如果没有该文件，则新建
+127.0.0.1:9090 { root * /var/www/flarum/public php_fastcgi 127.0.0.1:9000 header /assets { &#43;Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34; &#43;Cache-Control &amp;#34;max-age=25000&amp;#34; Pragma &amp;#34;public&amp;#34; } file_server } 其中本地端口可改为其他，root指向flarum的public路径，php配置如未修改过，则fastcgi指向URL 127.">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/flarum-installation/">Flarum mac本地化安装配置Guide</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 28, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="mac本地化安装配置flarum">Mac本地化安装配置Flarum</h1>
+<p>系统: macOS Monterey + Apple M1</p>
+<p>前提: <a class="link" href="https://gitee.com/cunkai/HomebrewCN"  target="_blank" rel="noopener"
+    >homebrewCN</a></p>
+<h2 id="mariadb配置">MariaDB配置</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install mariadb
+</span></span><span style="display:flex;"><span>brew services restart mariadb
+</span></span></code></pre></div><p>初始化MariaDB
+sudo下配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mysql_secure_installation
+</span></span></code></pre></div><h2 id="composer">Composer</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install composer
+</span></span></code></pre></div><p>ps. 安装composer会连同依赖php一同安装，但flarum没适配最新的php</p>
+<h2 id="php80"><a class="link" href="mailto:php@8.0" >php@8.0</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install php@8.0
+</span></span><span style="display:flex;"><span>brew services restart php@8.0
+</span></span></code></pre></div><p>同环境下还有一个php，指定一下PHP8.0</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;/opt/homebrew/opt/php@8.0/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=&#34;/opt/homebrew/opt/php@8.0/sbin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span></code></pre></div><h2 id="caddy">Caddy</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install caddy
+</span></span></code></pre></div><p>URL重写——配置Caddy
+在/opt/homebrew/etc/Caddyfile中添加配置，如果没有该文件，则新建</p>
+<pre tabindex="0"><code>127.0.0.1:9090 {
+    root * /var/www/flarum/public
+    php_fastcgi 127.0.0.1:9000
+    header /assets {
+        +Cache-Control &#34;public, must-revalidate, proxy-revalidate&#34;
+        +Cache-Control &#34;max-age=25000&#34;
+        Pragma &#34;public&#34;
+    }
+    file_server
+}
+</code></pre><p>其中本地端口可改为其他，root指向flarum的public路径，php配置如未修改过，则fastcgi指向URL 127.0.0.1:9000即可</p>
+<p>启动</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew services start caddy
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

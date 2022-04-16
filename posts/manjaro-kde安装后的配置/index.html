@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='manjaro kde安装后的配置 启动项 sudo update-grub 镜像源（选择清华源） sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay sudo pacman -S yay base-devel yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git yay -S git git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.email &amp;#39;1320949958@qq.com&amp;#39; sudo vim /etc/hosts 52.74.223.119 github.com 151.101.77.194 github.global.ssl.fastly.net 151.101.76.133 raw.githubusercontent.com github密钥导入 ssh-keygen cat .'><title>manjaro kde安装后的配置</title>
+
+<link rel='canonical' href='https://xhwhis.github.io/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='manjaro kde安装后的配置'>
+<meta property='og:description' content='manjaro kde安装后的配置 启动项 sudo update-grub 镜像源（选择清华源） sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay sudo pacman -S yay base-devel yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git yay -S git git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.email &amp;#39;1320949958@qq.com&amp;#39; sudo vim /etc/hosts 52.74.223.119 github.com 151.101.77.194 github.global.ssl.fastly.net 151.101.76.133 raw.githubusercontent.com github密钥导入 ssh-keygen cat .'>
+<meta property='og:url' content='https://xhwhis.github.io/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/'>
+<meta property='og:site_name' content='xhwhis'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2022-03-27T22:59:11&#43;08:00'/><meta property='article:modified_time' content='2022-03-27T22:59:11&#43;08:00'/>
+<meta name="twitter:title" content="manjaro kde安装后的配置">
+<meta name="twitter:description" content="manjaro kde安装后的配置 启动项 sudo update-grub 镜像源（选择清华源） sudo pacman-mirrors -i -c China -m rank sudo pacman -Syy sudo nano /etc/pacman.conf [archlinuxcn] SigLevel = Optional TrustedOnly Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch sudo pacman -S archlinuxcn-keyring sudo apcman -Syyu 安装软件 yay sudo pacman -S yay base-devel yay --save --aururl &amp;#34;https://aur.tuna.tsinghua.edu.cn&amp;#34; git yay -S git git config --global user.name &amp;#39;lws597&amp;#39; git config --global user.email &amp;#39;1320949958@qq.com&amp;#39; sudo vim /etc/hosts 52.74.223.119 github.com 151.101.77.194 github.global.ssl.fastly.net 151.101.76.133 raw.githubusercontent.com github密钥导入 ssh-keygen cat .">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">xhwhis</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/manjaro-kde%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/">manjaro kde安装后的配置</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="manjaro-kde安装后的配置">manjaro kde安装后的配置</h1>
+<h2 id="启动项">启动项</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo update-grub
+</span></span></code></pre></div><h2 id="镜像源选择清华源">镜像源（选择清华源）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo pacman-mirrors -i -c China -m rank
+</span></span><span style="display:flex;"><span>sudo pacman -Syy
+</span></span><span style="display:flex;"><span>sudo nano /etc/pacman.conf
+</span></span></code></pre></div><pre tabindex="0"><code>[archlinuxcn]
+SigLevel = Optional TrustedOnly
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo pacman -S archlinuxcn-keyring
+</span></span><span style="display:flex;"><span>sudo apcman -Syyu
+</span></span></code></pre></div><h2 id="安装软件">安装软件</h2>
+<h3 id="yay">yay</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S yay base-devel
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay --save --aururl <span style="color:#e6db74">&#34;https://aur.tuna.tsinghua.edu.cn&#34;</span>
+</span></span></code></pre></div><h3 id="git">git</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#39;lws597&#39;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#39;1320949958@qq.com&#39;</span>
+</span></span><span style="display:flex;"><span>sudo vim /etc/hosts
+</span></span></code></pre></div><pre tabindex="0"><code>52.74.223.119 github.com
+151.101.77.194 github.global.ssl.fastly.net
+151.101.76.133 raw.githubusercontent.com
+</code></pre><h4 id="github密钥导入">github密钥导入</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-keygen
+</span></span><span style="display:flex;"><span>cat .ssh/id_rsa.pub
+</span></span></code></pre></div><h3 id="常用">常用</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S gcc go jdk8-openjdk clang python python2 google-chrome netease-cloud-music typora
+</span></span></code></pre></div><h3 id="pip">pip</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S python-pip python2-pip
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir ~/.pip
+</span></span><span style="display:flex;"><span>nano ~/.pip/pip.conf
+</span></span></code></pre></div><pre tabindex="0"><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+</code></pre><h3 id="npm">npm</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm config set registry https://registry.npm.taobao.org
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install -g cnpm --registry<span style="color:#f92672">=</span>https://registry.npm.taobao.org
+</span></span></code></pre></div><h3 id="neovim">neovim</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -Rns vim
+</span></span><span style="display:flex;"><span>yay -S neovim
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .config
+</span></span><span style="display:flex;"><span>git clone git://github.com/lws597/nvim
+</span></span></code></pre></div><h3 id="zsh">zsh</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S zsh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h4 id="zsh插件">zsh插件</h4>
+<pre tabindex="0"><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump web-search extract last-working-dir sudo pip thefuck colored-man-pages colorize safe-paste git-open vi-mode copyfile copydir gitfast command-not-found history)
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S autojump thefuck
+</span></span><span style="display:flex;"><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+</span></span><span style="display:flex;"><span>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+</span></span><span style="display:flex;"><span>git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+</span></span></code></pre></div><h4 id="zshrc添加">zshrc添加</h4>
+<pre tabindex="0"><code>alias vim=&#34;nvim&#34;
+alias vi=&#34;nvim&#34;
+alias rm=&#34;rm -i&#34;
+alias cp=&#34;cp -i&#34;
+alias cls=&#34;clear&#34;
+alias cat=&#34;ccat&#34;
+alias ra=&#34;ranger&#34;
+alias -s c=copyfile
+alias -s cpp=copyfile
+</code></pre><h3 id="输入法rime">输入法（rime）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S fcitx-im kcm-fcitx fcitx-rime
+</span></span><span style="display:flex;"><span>sudo vim ~/.xprofile
+</span></span></code></pre></div><pre tabindex="0"><code>export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=&#34;&#34;@im=fcitx&#34;
+</code></pre><h3 id="wps">wps</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S wps-office-mui-zh-cn wps-office ttf-wps-fonts
+</span></span></code></pre></div><h3 id="ide">IDE</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S visual-studio-code-bin
+</span></span></code></pre></div><h3 id="字体">字体</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S nerd-fonts-complete ttf-monaco ttf-hanazono
+</span></span></code></pre></div><h3 id="美化">美化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S latte-dock
+</span></span></code></pre></div><p>主题	arc</p>
+<p>图标	numix papirus</p>
+<p>光标	mcmojave</p>
+<h3 id="其他软件">其他软件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yay -S xmind zoom dingtalk electronic-wechat qq-linux
+</span></span></code></pre></div><h3 id="双系统时间">双系统时间</h3>
+<p>windows端管理员下cmd或powershell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>reg add <span style="color:#e6db74">&#34;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation&#34;</span> /v RealTimeIsUniversal /d <span style="color:#ae81ff">1</span> /t REG_QWORD /f
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 xhwhis
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
